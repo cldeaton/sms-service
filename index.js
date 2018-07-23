@@ -3,13 +3,11 @@ const twilio            = require('twilio'),
       express           = require('express'),
       app               = express(),
       MessagingResponse = require('twilio').twiml.MessagingResponse,
-      // response          = new MessagingResponse(),
-      // message           = response.message(),
-      accountSid        = 'AC0a899649e39ba4535a524840713f918a',
-      authToken         = '8abe97d68c7aee8ae29f100f129c506c',
+      accountSid        = process.env.ACCOUNT_SID,
+      authToken         = process.env.AUTH_TOKEN,
       client            = new twilio(accountSid, authToken),
-      userNumber        = '+17046898590',
-      twilioNumber      = '+17047410519',
+      userNumber        = process.env.USER_NUMBER,
+      twilioNumber      = process.env.TWILIO_NUMBER,
       messageBody       = 'Your phone has now been taken over. Your mission, should you choose to accept it, is to reply to this text message.';
 
 // Creates outgoing message
@@ -26,6 +24,12 @@ app.post('/sms', (req, res) => {
   const twiml = new MessagingResponse();
 
   twiml.message('Thank you, your phone will now self destruct in 5 seconds');
+  // twiml.message('5');
+  // twiml.message('4');
+  // twiml.message('3');
+  // twiml.message('2');
+  // twiml.message('1');
+  // twiml.message('Boom!');
 
   res.writeHead(200, {'Content-Type': 'text/xml'});
   res.end(twiml.toString());
