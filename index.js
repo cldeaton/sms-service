@@ -7,6 +7,7 @@ const twilio            = require('twilio'),
       messageBody       = process.env.MESSAGE_BODY;
 
 // Creates outgoing message
+console.log(messageBody, userNumber)
 client.messages.create({
     body: messageBody,
     to: userNumber,
