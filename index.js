@@ -14,3 +14,14 @@ client.messages.create({
     from: twilioNumber
 })
 .then((message) => console.log(message.sid));
+
+
+
+// app.post("/", function(req, res){
+//   client.messages.create({
+//       body: req.messageBody,
+//       to: userNumber,
+//       from: twilioNumber
+//   })
+//   .then((message) => console.log(message.sid));
+// })

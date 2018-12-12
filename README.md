@@ -1,1 +1,1 @@
-# sms_app
+# sms-service
